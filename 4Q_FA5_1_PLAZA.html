@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAZA</title>
+    <link rel="HTMLSHEET" href="4Q_FA5_2_PLAZA.html">
+</head>
+<body>
+    <button onclick="num()">enter</button>
+    <div id="output"></div>
+
+    <script>
+        function isnum(value) {
+            return !isNaN(value);
+        }
+
+        function num() {
+            let x = prompt("Please enter a number:");
+            if (isnum(x)) {
+                let number = parseInt(x);
+                recntri(number);
+            } else {
+                alert("Please enter a number!");
+            }
+        }
+
+        function recntri(number) {
+            let y = document.getElementById('output');
+            y.innerHTML = 'Number inputted: ' + number + '\n';
+            let shape = '';
+
+            if (number % 2 === 0) {//TRIANGLE
+                for (let i = number; i > 0; i--) {
+                    for (let j = 0; j < i; j++) {
+                        shape += i + ' ';
+                    }
+                    shape += '\n';
+                }
+            } else {//RECTANGLE
+                for (let i = number; i > 0; i--) {
+                    for (let j = 0; j < number; j++) {
+                        shape += i + ' ';
+                    }
+                    shape += '\n';
+                }
+            }
+            y.textContent += shape;
+        }
+    </script>
+     <style>
+        #output {
+            font-family: monospace;
+            white-space: pre;
+        }
+    </style>
+     <a href="4Q_FA5_2_PLAZA.html"><strong>Link to FA5-2</strong></a>
+</body>
+</html>

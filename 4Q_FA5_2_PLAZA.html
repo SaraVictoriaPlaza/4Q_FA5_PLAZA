@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAZA</title>
+<link rel="HTMLSHEET" href="4Q_FA5_2_PLAZA.html">
+</head>
+<body>
+<div id="container">
+  <input type="text" id="contactInput">
+  <button onclick="addcon()">Add</button>
+  <button onclick="remcon()">Remove</button>
+  <div id="contactList"></div>
+</div>
+<script>
+  let contacts = [];
+  function displaycon() {
+    const contactList = document.getElementById('contactList');
+    let output = '';
+    for (let i = 0; i < contacts.length; i++) {
+      output += contacts[i] + ' ';
+    }
+    contactList.innerHTML = output;
+  }
+
+  function addcon() {
+    const input = document.getElementById('contactInput');
+    const con = input.value.trim();
+    if (con !== '') {
+      if (contacts.length === 7) {
+        contacts.shift(); 
+      }
+      contacts.push(con);
+      input.value = '';
+      displaycon();
+    }
+  }
+
+  function remcon() {
+    if (contacts.length > 0) {
+      contacts.pop(); 
+      displaycon();
+    }
+  }
+
+  displaycon(); 
+</script>
+<a href="4Q_FA5_1_PLAZA.html"><strong>Link to FA5-1</strong></a>
+</body>
+</html>
